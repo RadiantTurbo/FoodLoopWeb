@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07130f">
+<title>FoodLoop | Rescue Food. Reduce Waste.</title>
+<style>
+:root{--bg:#07130f;--panel:#0e2119;--panel2:#122a20;--line:#244536;--green:#7ee0a3;--green2:#31b86d;--muted:#9bb5a6;--white:#f3fff7;--orange:#ffbf69;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#173b2b 0,transparent 35%),var(--bg);color:var(--white);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1180px;margin:auto;padding:0 22px}
+header{border-bottom:1px solid #1d392b;background:#07130fe8;position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
+.top{height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:11px;font-weight:850;font-size:21px;letter-spacing:-.5px}.logo{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,#8cf0ae,#22a65c);display:grid;place-items:center;color:#062112;font-size:23px}.brand span{color:var(--green)}
+.topright{display:flex;gap:10px;align-items:center}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 13px;color:var(--muted);font-size:12px}.role-select{background:#10251b;color:var(--white);border:1px solid var(--line);border-radius:10px;padding:10px}
+.hero{padding:44px 0 26px;display:grid;grid-template-columns:1.3fr .7fr;gap:26px;align-items:center}.eyebrow{color:var(--green);font-weight:800;letter-spacing:1.6px;text-transform:uppercase;font-size:11px}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.04;letter-spacing:-2px;margin:12px 0}.hero h1 em{font-style:normal;color:var(--green)}.hero p{color:var(--muted);max-width:620px;font-size:16px}.hero-card{border:1px solid #2c5b42;background:linear-gradient(145deg,#173b29,#0c2118);padding:24px;border-radius:22px;box-shadow:0 20px 70px #0005}.hero-card .big{font-size:42px;font-weight:850;color:var(--green);line-height:1}.hero-card small{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.stat{background:#07171088;border:1px solid #2b4b39;border-radius:13px;padding:12px}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted)}
+.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);margin:15px 0 22px;overflow:auto}.tab{border:0;background:transparent;color:var(--muted);padding:13px 18px;border-bottom:2px solid transparent;white-space:nowrap}.tab.active{color:var(--green);border-color:var(--green);font-weight:800}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:24px 0 15px}.section-head h2{margin:0;font-size:23px}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.food{background:linear-gradient(160deg,#12291e,#0b1c14);border:1px solid var(--line);border-radius:17px;overflow:hidden}.foodtop{height:118px;display:flex;align-items:center;justify-content:center;font-size:54px;background:linear-gradient(135deg,#254a35,#142a20)}.foodbody{padding:16px}.foodbody h3{margin:0 0 4px;font-size:17px}.muted{color:var(--muted)}.foodmeta{display:flex;justify-content:space-between;gap:8px;margin:12px 0;font-size:12px;color:var(--muted)}.tag{display:inline-block;border-radius:999px;background:#1c4930;color:#9bf0b8;padding:4px 9px;font-size:11px;font-weight:700}.btn{border:0;border-radius:10px;padding:10px 15px;background:var(--green);color:#082014;font-weight:850}.btn:hover{filter:brightness(1.08)}.btn.secondary{background:#193728;color:var(--green);border:1px solid #326146}.btn:disabled{opacity:.45;cursor:not-allowed}
+.panel{background:linear-gradient(145deg,#10251b,#0b1b14);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}.formgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:12px;color:var(--muted);font-weight:700}.field input,.field select,.field textarea{width:100%;background:#071710;color:var(--white);border:1px solid #31513f;border-radius:9px;padding:11px;outline:none}.field input:focus,.field select:focus{border-color:var(--green)}.full{grid-column:1/-1}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.hidden{display:none!important}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#0a1a12;border:1px solid var(--line);padding:16px;border-radius:14px}.metric span{font-size:12px;color:var(--muted)}.metric b{display:block;font-size:27px;margin-top:5px}.notice{padding:12px 14px;border:1px solid #66502b;background:#332713;color:#ffd99b;border-radius:11px;font-size:12px;margin:14px 0}.result{border:1px solid #39744e;background:#102b1d;border-radius:14px;padding:18px;margin-top:15px}.result h3{margin:0 0 12px;color:var(--green)}.resultgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.resultgrid div{background:#071710;padding:12px;border-radius:10px}.resultgrid b{display:block;font-size:24px}.resultgrid span{color:var(--muted);font-size:11px}.empty{text-align:center;color:var(--muted);padding:36px;border:1px dashed var(--line);border-radius:15px}
+footer{border-top:1px solid var(--line);margin-top:55px;padding:24px 0;color:var(--muted);font-size:12px}.footrow{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#d9ffe5;color:#092114;padding:12px 18px;border-radius:12px;font-weight:800;box-shadow:0 8px 30px #0008;z-index:30;display:none}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.wrap{padding:0 14px}.top{height:66px}.brand{font-size:18px}.pill{display:none}.hero{padding-top:30px}.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr}.full{grid-column:auto}.resultgrid{grid-template-columns:1fr 1fr}.stats{gap:6px}.stat{padding:9px}.stat b{font-size:17px}}
+</style>
+</head>
+<body>
+<header><div class="wrap top">
+  <div class="brand"><div class="logo">↻</div>Food<span>Loop</span></div>
+  <div class="topright"><div class="pill">CAMPUS FOOD RESCUE</div><select class="role-select" id="roleSelect" aria-label="Choose view"><option value="student">Student view</option><option value="cafeteria">Cafeteria view</option><option value="admin">Admin dashboard</option></select></div>
+</div></header>
+<main class="wrap">
+<section class="hero">
+ <div><div class="eyebrow">Rescue food. Reduce waste.</div><h1>Good food deserves<br><em>a second chance.</em></h1><p>FoodLoop connects campus cafeterias with students to make surplus food visible, accessible and responsibly redistributed.</p></div>
+ <div class="hero-card"><div class="eyebrow">A better campus starts here</div><div class="big" id="availableCount">03</div><small>food listings currently available in this demo</small><div class="stats"><div class="stat"><b id="reservedCount">0</b><span>Reservations</span></div><div class="stat"><b id="savedCount">0</b><span>Meals handed over</span></div><div class="stat"><b>1</b><span>Shared campus</span></div></div></div>
+</section>
+<nav class="tabs"><button class="tab active" data-view="student">Discover food</button><button class="tab" data-view="cafeteria">Cafeteria listing</button><button class="tab" data-view="admin">Demand forecast</button></nav>
+
+<section id="studentView">
+ <div class="section-head"><div><h2>Available surplus food</h2><p>Reserve a listed item and collect it within the stated time.</p></div><span class="tag">STUDENT</span></div>
+ <div id="foodGrid" class="grid"></div>
+ <div class="section-head"><div><h2>My reservations</h2><p>Your reservations in this browser.</p></div></div>
+ <div id="myReservations" class="panel muted">No reservations yet.</div>
+</section>
+
+<section id="cafeteriaView" class="hidden">
+ <div class="section-head"><div><h2>List surplus food</h2><p>Only list food after an authorised operator has checked handling and allergen information.</p></div><span class="tag">CAFETERIA</span></div>
+ <div class="panel"><form id="foodForm" class="formgrid">
+  <div class="field"><label>Food item</label><input id="foodName" required placeholder="e.g. Vegetable rice"></div>
+  <div class="field"><label>Quantity (portions)</label><input id="foodQty" type="number" min="1" required placeholder="e.g. 12"></div>
+  <div class="field"><label>Pickup location</label><input id="foodLocation" required placeholder="e.g. Main cafeteria counter"></div>
+  <div class="field"><label>Pickup deadline</label><input id="foodDeadline" type="time" required></div>
+  <div class="field"><label>Allergen / handling notes</label><input id="foodAllergens" required placeholder="e.g. Contains dairy; kept refrigerated"></div>
+  <div class="field"><label>Operator safety check</label><select id="foodSafety"><option value="no">Not yet checked</option><option value="yes">Checked by authorised operator</option></select></div>
+  <div class="field full"><label>Short description</label><input id="foodDescription" placeholder="Optional details about the food"></div>
+  <div class="full actions"><button class="btn" type="submit">Publish food listing</button><span class="muted" style="font-size:12px;align-self:center">Unchecked listings remain hidden from students.</span></div>
+ </form></div>
+ <div class="section-head"><div><h2>Current listings</h2><p>Manage listings created in this browser.</p></div></div><div id="cafeteriaListings"></div>
+</section>
+
+<section id="adminView" class="hidden">
+ <div class="section-head"><div><h2>Campus demand forecast</h2><p>Illustrative forecasting dashboard using editable demo inputs.</p></div><span class="tag">ADMIN</span></div>
+ <div class="notice">Demo mode: forecasts use the values entered below and illustrative adjustment factors. No live POS, attendance, weather or sensor feed is connected.</div>
+ <div class="panel"><h3 style="margin-top:0">Live operating inputs</h3><div class="formgrid">
+  <div class="field"><label>Meals sold so far</label><input id="sales" type="number" min="0" value="82"></div>
+  <div class="field"><label>Minutes elapsed in service</label><input id="elapsed" type="number" min="1" value="90"></div>
+  <div class="field"><label>Total service minutes</label><input id="duration" type="number" min="1" value="180"></div>
+  <div class="field"><label>Current footfall estimate</label><input id="footfall" type="number" min="0" value="110"></div>
+  <div class="field"><label>Prepared portions</label><input id="prepared" type="number" min="0" value="100"></div>
+  <div class="field"><label>Uncooked / ready stock portions</label><input id="stock" type="number" min="0" value="20"></div>
+  <div class="field"><label>Campus occupancy</label><input id="occupancy" type="number" min="0" max="100" value="85"></div>
+  <div class="field"><label>Campus event multiplier</label><input id="eventFactor" type="number" min=".7" max="1.6" step=".05" value="1"></div>
+  <div class="field"><label>Weather</label><select id="rain"><option value="1">No rain</option><option value=".96">Light rain</option><option value=".88">Moderate rain</option><option value=".75">Heavy rain</option></select></div>
+  <div class="field"><label>Calendar condition</label><select id="calendar"><option value="normal">Normal day</option><option value="exam">Exam period</option><option value="holiday">Holiday / semester break</option><option value="festival">Festival / special holiday</option></select></div>
+ </div><div class="actions"><button class="btn" id="forecastBtn" type="button">Run demand forecast</button></div>
+ <div id="forecastResult" class="result hidden" aria-live="polite"></div></div>
+ <div class="panel"><h3 style="margin-top:0">Data quality guard — sample check</h3><p class="muted" style="font-size:13px">Demonstrates basic checks before a sensor reading is trusted.</p><div class="formgrid">
+  <div class="field"><label>Sensor reading</label><input id="sensorValue" type="number" value="245"></div>
+  <div class="field"><label>Allowed range (minimum / maximum)</label><input id="sensorRange" value="0, 500"></div>
+ </div><div class="actions"><button class="btn secondary" id="checkSensor" type="button">Validate sample</button></div><p id="sensorResult" class="muted" aria-live="polite">No validation performed.</p></div>
+</section>
+</main>
+<footer><div class="wrap footrow"><span>© 2026 FoodLoop · Campus surplus food redistribution demo</span><span>Food safety first · Impact counted only after handover confirmation</span></div></footer>
+<div class="toast" id="toast"></div>
+<script>
+const starterFoods=[
+ {id:1,name:"Vegetable rice",qty:12,location:"Main cafeteria counter",deadline:"14:30",allergens:"May contain nuts; freshly prepared",description:"Freshly prepared lunch portions.",emoji:"🍚",safety:true,reserved:0},
+ {id:2,name:"Idli & sambar",qty:8,location:"South block food court",deadline:"13:45",allergens:"Contains lentils; handled hygienically",description:"Steamed idlis with sambar.",emoji:"🥘",safety:true,reserved:0},
+ {id:3,name:"Fruit bowls",qty:6,location:"Juice counter",deadline:"16:00",allergens:"Fresh fruit; prepared today",description:"Assorted seasonal fruit.",emoji:"🍉",safety:true,reserved:0}
+];
+const load=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))??f}catch{return f}};
+let foods=load("foodloop_foods",starterFoods), reservations=load("foodloop_reservations",[]);
+const save=()=>{localStorage.setItem("foodloop_foods",JSON.stringify(foods));localStorage.setItem("foodloop_reservations",JSON.stringify(reservations));updateStats()};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",2400)}
+function updateStats(){document.getElementById("availableCount").textContent=String(foods.filter(f=>f.safety&&f.qty-f.reserved>0).length).padStart(2,"0");document.getElementById("reservedCount").textContent=reservations.length;document.getElementById("savedCount").textContent=reservations.filter(r=>r.handed).length}
+function renderFoods(){let available=foods.filter(f=>f.safety&&f.qty-f.reserved>0);document.getElementById("foodGrid").innerHTML=available.length?available.map(f=>`<article class="food"><div class="foodtop">${f.emoji||"🍽️"}</div><div class="foodbody"><span class="tag">SAFETY CHECKED</span><h3>${esc(f.name)}</h3><div class="muted" style="font-size:12px">${esc(f.description||"Surplus food available for collection.")}</div><div class="foodmeta"><span>📍 ${esc(f.location)}</span><span>⏰ ${esc(f.deadline)}</span></div><div class="foodmeta"><span>${f.qty-f.reserved} portions left</span><span>${esc(f.allergens)}</span></div><button class="btn" onclick="reserve(${f.id})">Reserve a portion</button></div></article>`).join(""):`<div class="empty" style="grid-column:1/-1">No verified food listings available right now.</div>`;
+ document.getElementById("myReservations").innerHTML=reservations.length?reservations.map(r=>`<div style="padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span><b>${esc(r.name)}</b><br><small class="muted">${esc(r.location)} · Pickup by ${esc(r.deadline)}</small></span><span>${r.handed?'<span class="tag">HANDED OVER</span>':`<button class="btn secondary" onclick="handover(${r.rid})">Confirm handover</button>`}</span></div>`).join(""):"No reservations yet."}
+function renderCafeteria(){let el=document.getElementById("cafeteriaListings");el.innerHTML=foods.length?foods.map(f=>`<div class="panel" style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><b>${esc(f.name)}</b><div class="muted" style="font-size:12px">${f.qty} portions · ${esc(f.location)} · ${f.safety?"Safety checked":"Awaiting safety check"}</div></div><div class="actions" style="margin:0"><button class="btn secondary" onclick="toggleSafety(${f.id})">${f.safety?"Unpublish":"Approve safety check"}</button><button class="btn secondary" onclick="removeFood(${f.id})">Remove</button></div></div>`).join(""):'<div class="empty">No listings created yet.</div>'}
+function reserve(id){let f=foods.find(x=>x.id===id);if(!f||!f.safety||f.qty-f.reserved<1)return;f.reserved++;reservations.push({rid:Date.now(),foodId:id,name:f.name,location:f.location,deadline:f.deadline,handed:false});save();renderAll();toast("Reservation saved in this browser.");}
+function handover(rid){let r=reservations.find(x=>x.rid===rid);if(r&&!r.handed){r.handed=true;save();renderAll();toast("Handover confirmed. Demo impact updated.");}}
+function toggleSafety(id){let f=foods.find(x=>x.id===id);f.safety=!f.safety;save();renderAll();toast(f.safety?"Listing marked safety checked.":"Listing hidden from students.");}
+function removeFood(id){foods=foods.filter(x=>x.id!==id);save();renderAll();}
+function renderAll(){renderFoods();renderCafeteria();updateStats()}
+function showView(view){["student","cafeteria","admin"].forEach(v=>{document.getElementById(v+"View").classList.toggle("hidden",v!==view);document.querySelector(`[data-view="${v}"]`).classList.toggle("active",v===view)});document.getElementById("roleSelect").value=view}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>showView(b.dataset.view)));
+document.getElementById("roleSelect").addEventListener("change",e=>showView(e.target.value));
+document.getElementById("foodForm").addEventListener("submit",e=>{e.preventDefault();let safety=document.getElementById("foodSafety").value==="yes";foods.unshift({id:Date.now(),name:document.getElementById("foodName").value,qty:+document.getElementById("foodQty").value,location:document.getElementById("foodLocation").value,deadline:document.getElementById("foodDeadline").value,allergens:document.getElementById("foodAllergens").value,description:document.getElementById("foodDescription").value,emoji:"🍱",safety,reserved:0});save();renderAll();e.target.reset();toast(safety?"Verified listing published.":"Saved as pending; hidden from students.")});
+document.getElementById("forecastBtn").addEventListener("click",()=>{let sales=Math.max(0,+salesEl.value),elapsed=Math.max(1,+elapsedEl.value),duration=Math.max(1,+durationEl.value),foot=Math.max(0,+footEl.value),occ=Math.min(100,Math.max(0,+occEl.value))/100,event=Math.min(1.6,Math.max(.7,+eventEl.value)),prepared=Math.max(0,+prepEl.value),stock=Math.max(0,+stockEl.value);let calendar=document.getElementById("calendar").value,cal=calendar==="holiday"||calendar==="festival"?.65:calendar==="exam"?.95:1;let base=sales/elapsed*duration;let footProjection=foot*1.05;let factor=occ*cal*event*(+document.getElementById("rain").value);let forecast=Math.max(0,Math.round(((base*.7+footProjection*.3)*factor)));let prep=Math.ceil(forecast*1.08),additional=Math.max(0,prep-prepared-stock);let surge=base*factor>Math.max(forecast+2,forecast*1.2);let r=document.getElementById("forecastResult");r.classList.remove("hidden");r.innerHTML=`<h3>Forecast result</h3><div class="resultgrid"><div><b>${forecast}</b><span>Expected demand (portions)</span></div><div><b>${prep}</b><span>Recommended preparation incl. 8% buffer</span></div><div><b>${additional}</b><span>Additional portions to prepare</span></div></div><p style="margin:13px 0 0;color:${surge?"#ffbf69":"#9bb5a6"}">${surge?"⚠ Demand surge signal detected. Review live sales and staffing.":"✓ No surge signal based on current demo inputs."}</p><small class="muted">Adjustment factors: occupancy ${(occ*100).toFixed(0)}%, calendar ${cal}, event ${event.toFixed(2)}, weather ${(+document.getElementById("rain").value).toFixed(2)}. This is an illustrative estimate, not an operational instruction.</small>`});
+const salesEl=document.getElementById("sales"),elapsedEl=document.getElementById("elapsed"),durationEl=document.getElementById("duration"),footEl=document.getElementById("footfall"),occEl=document.getElementById("occupancy"),eventEl=document.getElementById("eventFactor"),prepEl=document.getElementById("prepared"),stockEl=document.getElementById("stock");
+document.getElementById("checkSensor").addEventListener("click",()=>{let v=+document.getElementById("sensorValue").value,parts=document.getElementById("sensorRange").value.split(",").map(Number);let p=document.getElementById("sensorResult");if(parts.length!==2||parts.some(Number.isNaN)){p.textContent="Enter range as minimum, maximum (example: 0, 500).";return}p.textContent=v>=parts[0]&&v<=parts[1]?"✓ Valid sample: reading is within the configured range.":"⚠ Out-of-range sample: quarantine this reading for review.";p.style.color=v>=parts[0]&&v<=parts[1]?"var(--green)":"var(--orange)"});
+renderAll();
+</script>
+</body></html>
