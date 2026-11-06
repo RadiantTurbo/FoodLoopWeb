@@ -5,10 +5,10 @@ import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/
 
 // Replace these values with your Firebase project's web app configuration.
 const firebaseConfig = {
-  apiKey: "YOUR_FIREBASE_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "YOUR_FIREBASE_APP_ID"
+  apiKey: "AIzaSyA5eawi3NfcrQUKXa5DxgyyE9yML2BMpcg",
+  authDomain: "foodloop-a7423.firebaseapp.com",
+  projectId: "foodloop-a7423",
+  appId: "1:1070435600539:web:cc8192f6a7dba0ccaa5e3"
 };
 const configured = !Object.values(firebaseConfig).some(v => v.startsWith("YOUR_"));
 const $ = id => document.getElementById(id);
